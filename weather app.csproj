@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>weather_app</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Icons\01d%402x.png" />
+    <None Remove="Assets\Icons\01n%402x.png" />
+    <None Remove="Assets\Icons\02d%402x.png" />
+    <None Remove="Assets\Icons\02n%402x.png" />
+    <None Remove="Assets\Icons\03d%402x.png" />
+    <None Remove="Assets\Icons\03n%402x.png" />
+    <None Remove="Assets\Icons\04d%402x.png" />
+    <None Remove="Assets\Icons\04n%402x.png" />
+    <None Remove="Assets\Icons\09d%402x.png" />
+    <None Remove="Assets\Icons\09n%402x.png" />
+    <None Remove="Assets\Icons\10d%402x.png" />
+    <None Remove="Assets\Icons\10n%402x.png" />
+    <None Remove="Assets\Icons\11d%402x.png" />
+    <None Remove="Assets\Icons\11n%402x.png" />
+    <None Remove="Assets\Icons\50d%402x.png" />
+    <None Remove="Assets\Icons\50n%402x.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\01d@2x.png" />
+    <Resource Include="Assets\Icons\01n@2x.png" />
+    <Resource Include="Assets\Icons\02d@2x.png" />
+    <Resource Include="Assets\Icons\02n@2x.png" />
+    <Resource Include="Assets\Icons\03d@2x.png" />
+    <Resource Include="Assets\Icons\03n@2x.png" />
+    <Resource Include="Assets\Icons\04d@2x.png" />
+    <Resource Include="Assets\Icons\04n@2x.png" />
+    <Resource Include="Assets\Icons\09d@2x.png" />
+    <Resource Include="Assets\Icons\09n@2x.png" />
+    <Resource Include="Assets\Icons\10d@2x.png" />
+    <Resource Include="Assets\Icons\10n@2x.png" />
+    <Resource Include="Assets\Icons\11d@2x.png" />
+    <Resource Include="Assets\Icons\11n@2x.png" />
+    <Resource Include="Assets\Icons\50d@2x.png" />
+    <Resource Include="Assets\Icons\50n@2x.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,199 @@
+﻿<Window x:Class="weather_app.MainWindow"  
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  
+        xmlns:local="clr-namespace:weather_app"  
+         xmlns:viewModel="clr-namespace:weather_app.ViewModel"
+        mc:Ignorable="d"  
+        Title="WeatherApp" Height="600" Width="920"  
+        WindowStyle="None"  
+        Background="Transparent"  
+        AllowsTransparency="True">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    <Border CornerRadius="20"  
+            Background="#272537"
+            MouseDown="Border_MouseDown">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Button Grid.Column="1"
+                    Style="{StaticResource ModernButton}"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Margin="10"
+                    Content="Exit"
+                    FontSize="16"
+                    Command="{Binding WeatherVM.CloseApp}">
+                
+            </Button>
+
+            <TextBlock Text="{Binding WeatherVM.WeatherData.Name}"  
+                       FontSize="24"  
+                       Margin="0,0,0,0"   
+                       Foreground="White"  
+                       HorizontalAlignment="Center"  
+                       VerticalAlignment="Center"/>
+
+            <TextBox Grid.Column="1"  
+                     Width="200" Height="40"   
+                     Text="{Binding WeatherVM.CityName, UpdateSourceTrigger=PropertyChanged}"   
+                     VerticalContentAlignment="Center"  
+                     HorizontalAlignment="Left"
+                     Keyboard.KeyDown="TextBox_KeyDown"
+                     Margin="110,18,0,17"  
+                     Style="{StaticResource ModernTextBox}"/>
+
+
+
+
+
+            <StackPanel Grid.Column="0"
+                        Grid.Row="1"
+                        Margin="10,27,10,0"
+                        Orientation="Vertical"
+                        VerticalAlignment="Top" Height="488">
+
+                <StackPanel >
+                    <Border CornerRadius="10"
+                            Width="194"
+                            Height="449">
+                        <Border.Background>
+
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                <GradientStop Color="LightSkyBlue" Offset="0.0"/>
+                                <GradientStop Color="LightBlue" Offset="0.6"/>
+
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="110"/>
+                                <RowDefinition Height="70"/>
+                                <RowDefinition Height="150"/>
+                                <RowDefinition Height="60"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" 
+                                    Grid.Row="0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Top"
+                                    Margin="1,1,1,1"
+                                    Width="100"
+                                    Height="100"
+                                    Stretch="Uniform"
+                                    Source="{Binding WeatherVM.WeatherIcon}"/>
+                            <TextBlock Grid.Row="1"
+                                       Foreground="White"
+                                       FontSize="24"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="0,5,0,0">
+                                <Run Text="{Binding WeatherVM.WeatherMain}"/>
+                               
+                            </TextBlock>
+                            <TextBlock Grid.Row="1"
+                                       Foreground="White"
+                                       FontSize="15"
+                                       FontStyle="Italic"
+                                       Text="{Binding WeatherVM.WeatherDesc}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="0,35,0,0"/>
+
+                           
+                            <TextBlock Grid.Row="2"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center">
+                                <Run Text="{Binding WeatherVM.WeatherData.Main.Temp}"
+                                     FontSize="50"
+                                     Foreground="White"/>
+                                <Run Text="°"
+                                     FontSize="50"
+                                     Foreground="White"/>
+                            </TextBlock>
+
+                            <TextBlock Grid.Row="3"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                       FontSize="18"
+                                       Margin="5"
+                                       FontStyle="Italic"
+                                       Foreground="White">
+                                <Run Text="H: "/>
+                                <Run Text="{Binding WeatherVM.WeatherData.Main.Temp_max}"/>
+                                <Run Text="°"/>     
+                               
+                            </TextBlock>
+
+                            <TextBlock Grid.Row="3"
+                                       HorizontalAlignment="right"
+                                       VerticalAlignment="Top"
+                                       FontSize="18"
+                                       Margin="5"
+                                       FontStyle="Italic"
+                                       Foreground="White">
+
+                                <Run Text="L: "/>
+                                <Run Text="{Binding WeatherVM.WeatherData.Main.Temp_min}"/>
+                                <Run Text="°"/>
+                            </TextBlock>
+                            <TextBlock Grid.Row="3"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Bottom"
+                                       Foreground="White"
+                                       FontSize="16"
+                                       Margin="5"
+                                       FontStyle="Italic">
+                                <Run Text="Feels Like: "/>
+                                <Run Text="{Binding WeatherVM.WeatherData.Main.Feels_like}"/>
+                                <Run Text="°"/>
+                            </TextBlock>
+                            <TextBlock Grid.Row="4"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Foreground="White"
+                                        FontSize="16"
+                                        Margin="5"
+                                        FontStyle="Italic">
+                                <Run Text="Presure: "/>
+                                <Run Text="{Binding WeatherVM.WeatherData.Main.Pressure}"/>
+                                <Run Text="hPa"/>
+                            </TextBlock>
+
+
+                        </Grid>
+                      
+                        
+                    </Border>
+
+                </StackPanel>
+
+            </StackPanel>
+
+
+
+
+
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="10"
+                            Content="{Binding HomeVM}"/>
+
+        </Grid>
+
+    </Border>
+
+</Window>
