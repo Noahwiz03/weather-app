@@ -126,7 +126,7 @@ namespace weather_app.ViewModel
             try
             {
                 IsLoading = true;
-                string apiKey = "6c556f1cbfe685d70ec974af605199ea"; 
+                string apiKey = "your api key here"; 
                 string url = $"https://api.openweathermap.org/data/2.5/weather?q={CityName}&appid={apiKey}&units=imperial";
                 Console.WriteLine($"Fetching weather for: {CityName}");
                 Console.WriteLine($"URL: {url}");
@@ -143,7 +143,7 @@ namespace weather_app.ViewModel
                 {
                     try
                     {
-                        var uri = new Uri($"pack://application:,,,/weather app;component/Assets/Icons/{iconCode}@2x.png", UriKind.Absolute);
+                        var uri = new Uri($"your uri path for icons", UriKind.Absolute);
                         WeatherIcon = new BitmapImage(uri);
                     }
                     catch(Exception ex)
