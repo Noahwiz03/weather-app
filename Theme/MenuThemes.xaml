@@ -1,0 +1,75 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="{x:Type TextBox}" x:Key="ModernTextBox">
+        <Setter Property="Foreground" Value="#CFCFCF"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border CornerRadius="10"
+                        Background="#353350"
+                        Width="200"
+                        Height="40">
+                        <Grid>
+                            <!-- Placeholder Text -->
+                            <TextBlock x:Name="Placeholder"
+                                   Text="Search for City..."
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="10,0,0,0"
+                                   FontSize="11"
+                                   Foreground="#CFCFCF"
+                                   Visibility="Collapsed"
+                                   IsHitTestVisible="False"/>
+
+                            <!-- Real TextBox content -->
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                      Margin="10,0,0,0"
+                                      VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <!-- Placeholder Visibility Triggers -->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter TargetName="Placeholder" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="Placeholder" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type Button}" x:Key="ModernButton">  
+        <Setter Property="Background" Value="#353350"/>  
+        <Setter Property="Foreground" Value="#CFCFCF"/>  
+        <Setter Property="Template">  
+            <Setter.Value>  
+                <ControlTemplate TargetType="Button">  
+                    <Border x:Name="Border" CornerRadius="10"  
+                            Background="{TemplateBinding Background}"  
+                            Width="200"  
+                            Height="40">  
+                        <ContentPresenter HorizontalAlignment="Center"  
+                                          VerticalAlignment="Center"  
+                                          RecognizesAccessKey="True"/>  
+                    </Border>  
+                    <ControlTemplate.Triggers>  
+                        <Trigger Property="IsMouseOver" Value="True">  
+                            <Setter TargetName="Border" Property="Background" Value="#505070"/>  
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#2e2e40"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Border" Property="Opacity" Value="0.4"/>
+                            
+                        </Trigger>
+                    </ControlTemplate.Triggers>  
+                </ControlTemplate>  
+            </Setter.Value>  
+        </Setter>  
+    </Style>  
+</ResourceDictionary>
